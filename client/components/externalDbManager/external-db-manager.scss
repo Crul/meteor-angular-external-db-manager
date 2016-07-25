@@ -1,0 +1,37 @@
+// externalDb.scss
+.external-db-manager {
+    margin: 0 -12px;
+
+    button {
+        cursor: hand;
+        width: 40px;
+    }
+
+    .connection-form {
+        background: #eee;
+
+        &.connected,
+        &.connected label,
+        &.connected label input {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+
+        &.connected button {
+            cursor: hand;
+        }
+    }
+
+    .row {
+        border-bottom: solid 1px #ccc;
+        margin: 0;
+
+        &.table-header {
+            background: #eee;
+        }
+        
+        .col {
+            overflow: hidden;
+        }
+    }
+}
