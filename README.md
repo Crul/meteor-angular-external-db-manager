@@ -11,11 +11,16 @@ meteor add crul:meteor-angular-external-db-manager
 ## dependencies
 
 - ecmascript
+- underscore
+- pbastowski:angular-babel
+- angular-templates
+- driftyco:ionic
 - crul:meteor-external-mongo-db
 
-## api
-
 ## roadmap
+
+- add testing (server + client)
+- bootstrap version
 
 # example project instructions 
 
@@ -24,6 +29,7 @@ meteor add crul:meteor-angular-external-db-manager
     ```Batchfile
     meteor create meteorTestApp
     cd meteorTestApp
+    meteor remove blaze-html-templates
     meteor add crul:meteor-angular-external-db-manager
     ```
 
