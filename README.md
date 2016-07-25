@@ -1,4 +1,4 @@
-# meteor angular external db manager
+# meteor angular external db manager [![Build Status](https://travis-ci.org/Crul/meteor-angular-external-db-manager.svg?branch=master)](https://travis-ci.org/Crul/meteor-angular-external-db-manager)
 
 external / remote db component for angular meteor apps
 
@@ -12,8 +12,7 @@ meteor add crul:meteor-angular-external-db-manager
 
 - ecmascript
 - underscore
-- pbastowski:angular-babel
-- angular-templates
+- angular
 - driftyco:ionic
 - crul:meteor-external-mongo-db
 
