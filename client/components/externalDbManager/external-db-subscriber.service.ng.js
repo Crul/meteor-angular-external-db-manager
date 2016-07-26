@@ -16,7 +16,10 @@ angular.module('external-db-manager')
   return service;
 
   function subscribeToDb(dbUrl) {
-    data.db = new ExternalDb(dbUrl);
+    data.db = {
+      url: dbUrl,
+      publicationName: `${dbUrl}-collections`
+    };
     let publicationName = data.db.publicationName;
     $meteor.call('externalDb.connect', data.db.url).then(loadDbCollections);
 
@@ -34,13 +37,12 @@ angular.module('external-db-manager')
   
   function unsubscribeFromDb() {
     if (!data.db) return;
-    $meteor.call('externalDb.disconnect', data.db.name);
+    $meteor.call('externalDb.disconnect', data.db.url);
     stopCollection(data.db.subscription, data.db.collections);
   }
 
   function subscribeToCollection(collection) {
-    let publicationName = data.db.getCollectionPublicationName(collection);
-    return $meteor.subscribe(publicationName).then(subscribeCollection);
+    return $meteor.subscribe(collection.name).then(subscribeCollection);
 
     function subscribeCollection(subscription) {
       data.collectionSubscription = subscription;
@@ -58,7 +60,7 @@ angular.module('external-db-manager')
 
   function getCollection(poolKey, collectionName) {
     let pool = data.collectionPool;
-    pool[poolKey] = pool[poolKey] || data.db.createCollection(collectionName);
+    pool[poolKey] = pool[poolKey] || $meteor.collection(collectionName);;
     return pool[poolKey];
   }
   
