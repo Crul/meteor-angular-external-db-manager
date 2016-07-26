@@ -1,6 +1,6 @@
 Package.describe({
   name: 'crul:meteor-angular-external-db-manager',
-  version: '0.0.20',
+  version: '0.0.21',
   summary: '[not working] meteor angular db manager component',
   git: 'https://github.com/Crul/meteor-angular-external-db-manager',
   documentation: 'README.md'
