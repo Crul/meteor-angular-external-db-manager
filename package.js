@@ -13,7 +13,7 @@ Package.onUse(function(api) {
   api.use('templating');
   api.use('angular:angular@1.5.3_1', 'client');
   api.use('driftyco:ionic@1.2.4', 'client');
-  api.use('crul:meteor-external-mongo-db@0.3.4');
+  api.use('crul:meteor-external-mongo-db@0.3.5');
   
   api.addFiles([
     'client/lib/angular.module.js',
