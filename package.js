@@ -1,6 +1,6 @@
 Package.describe({
   name: 'crul:meteor-angular-external-db-manager',
-  version: '0.0.13',
+  version: '0.0.15',
   summary: '[not working] meteor angular db manager component',
   git: 'https://github.com/Crul/meteor-angular-external-db-manager',
   documentation: 'README.md'
@@ -25,11 +25,14 @@ Package.onUse(function(api) {
   
   api.addFiles([
     'client/lib/angular.module.js',
-    'client/components/onOffButton/on-off-button.view.ng.html',
     'client/components/onOffButton/on-off-button.directive.ng.js',
     'client/components/externalDbManager/external-db-subscriber.service.ng.js',
+    'client/components/externalDbManager/external-db-manager.directive.ng.js'
+  ], 'client');
+
+  api.addAssets([
+    'client/components/onOffButton/on-off-button.view.ng.html',
     'client/components/externalDbManager/external-db-manager.view.ng.html',
-    'client/components/externalDbManager/external-db-manager.directive.ng.js',
     //'client/components/externalDbmanager/external-db-manager.scss'
   ], 'client');
   
