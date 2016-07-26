@@ -1,7 +1,6 @@
 'use strict';
-import ExternalDb from '../../../../../../imports/remoteDb/remoteDb';
 
-angular.module('meteor-db-manager')
+angular.module('external-db-manager')
 .factory('externalDbSubscriber', function($meteor) {
   let data = {
     collectionPool: {}

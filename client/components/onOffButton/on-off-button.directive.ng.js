@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('meteor-db-manager')
+angular.module('external-db-manager')
 .directive('onOffButton', function() {
   return {
     restrict: 'EA',
