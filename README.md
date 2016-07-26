@@ -29,6 +29,7 @@ meteor add crul:meteor-angular-external-db-manager
     meteor create meteorTestApp
     cd meteorTestApp
     meteor remove blaze-html-templates
+    meteor add angular-templates
     meteor add crul:meteor-angular-external-db-manager
     ```
 
