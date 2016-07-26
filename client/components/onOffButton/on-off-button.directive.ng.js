@@ -7,11 +7,11 @@ angular.module('external-db-manager')
     template: '' +
               '<button class="button button-small"' +
               '        style="float: right; margin-left: 9px;"' +
-              '        ng-class="isOn() ? 'button-assertive' : 'button-balanced'"' +
+              '        ng-class="isOn() ? \'button-assertive\' : \'button-balanced\'"' +
               '        ng-click="isOn() ? onAction() : offAction()">' +
               '' +
               '    <i class="icon"' +
-              '        ng-class="isOn() ? 'ion-toggle-filled' : 'ion-toggle'"></i>' +
+              '        ng-class="isOn() ? \'ion-toggle-filled\' : \'ion-toggle\'"></i>' +
               '' +
               '</button>',
     replace: true,
