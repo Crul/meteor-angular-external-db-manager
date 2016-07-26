@@ -1,2 +1,2 @@
 let dependencies = [];
-angular.module('meteor-db-manager', dependencies);
+angular.module('external-db-manager', dependencies);

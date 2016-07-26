@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('meteor-db-manager')
+angular.module('external-db-manager')
 .factory('externalDbSubscriber', function($meteor) {
   let data = {
     collectionPool: {}

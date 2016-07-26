@@ -35,7 +35,7 @@ meteor add crul:meteor-angular-external-db-manager
 - add main.js code to client:
 
     ```javascript
-    angular('test', ['meteor-db-manager']);
+    angular('test', ['external-db-manager']);
     ```
 
 - add main.html code to client:

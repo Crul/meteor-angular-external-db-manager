@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('external-mongo-db')
+angular.module('external-db-manager')
 .directive('externalDbManager', function(externalDbSubscriber) {
   return {
     restrict: 'EA',
