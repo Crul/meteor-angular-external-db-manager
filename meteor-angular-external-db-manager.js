@@ -6,8 +6,8 @@ if (Meteor.isServer) {
         'externalDb.connect': function(dbUrl) {
             return externalDbPublisher.connect(dbUrl);
         },
-        'externalDb.disconnect': function(dbName) {
-            return externalDbPublisher.disconnect(dbName);
+        'externalDb.disconnect': function(dbUrl) {
+            return externalDbPublisher.disconnect(dbUrl);
         }
     });
 }
