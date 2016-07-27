@@ -32,7 +32,7 @@ angular.module('external-db-manager')
 
     function subscribeDbCollection(subscription) {
       data.db.subscription = subscription;
-      data.db.collections = $meteor.collection(getCollection(publicationName));
+      data.db.collections = getCollection(publicationName);
     }
   }
   
@@ -48,8 +48,7 @@ angular.module('external-db-manager')
     function subscribeCollection(subscription) {
       data.collectionSubscription = subscription;
       let collectionName = collection.name;
-      let meteorCollection = getCollection(collectionName, collectionName);
-      data.collection = $meteor.collection(meteorCollection);
+      data.collection = getCollection(collectionName, collectionName);
 
       return data.collection;
     }
@@ -61,7 +60,7 @@ angular.module('external-db-manager')
 
   function getCollection(poolKey, collectionName) {
     let pool = data.collectionPool;
-    pool[poolKey] = pool[poolKey] || $meteor.collection(collectionName);;
+    pool[poolKey] = pool[poolKey] || $meteor.collection(meteorCollection);
     return pool[poolKey];
   }
   
