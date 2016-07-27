@@ -48,7 +48,7 @@ angular.module('external-db-manager')
     function subscribeCollection(subscription) {
       data.collectionSubscription = subscription;
       let collectionName = collection.name;
-      data.collection = getCollection(collectionName, collectionName);
+      data.collection = getCollection(collectionName);
 
       return data.collection;
     }
@@ -58,9 +58,9 @@ angular.module('external-db-manager')
       stopCollection(data.collectionSubscription, data.collection);
   }
 
-  function getCollection(poolKey, collectionName) {
+  function getCollection(poolKey) {
     let pool = data.collectionPool;
-    pool[poolKey] = pool[poolKey] || $meteor.collection(meteorCollection);
+    pool[poolKey] = pool[poolKey] || $meteor.collection(poolKey);
     return pool[poolKey];
   }
   
