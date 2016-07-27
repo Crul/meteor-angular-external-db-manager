@@ -60,8 +60,8 @@ angular.module('external-db-manager')
 
   function getCollection(poolKey) {
     let pool = data.collectionPool;
-    pool[poolKey] = pool[poolKey] || $meteor.collection(poolKey);
-    return pool[poolKey];
+    pool[poolKey] = pool[poolKey] || new Mongo.Collection(poolKey);
+    return $meteor.collection(pool[poolKey]);
   }
   
   function stopCollection(subscription, collection) {
