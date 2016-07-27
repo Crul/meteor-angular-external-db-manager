@@ -10,6 +10,7 @@ meteor add crul:meteor-angular-external-db-manager
 
 ## dependencies
 
+- ecmascript
 - underscore
 - pbastowski:angular-babel
 - driftyco:ionic
