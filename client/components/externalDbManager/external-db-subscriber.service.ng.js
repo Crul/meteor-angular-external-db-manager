@@ -16,11 +16,12 @@ angular.module('external-db-manager')
   return service;
 
   function subscribeToDb(dbUrl) {
+    let dbName = ((dbUrl || '').split('/').pop() || '');
+    let publicationName = `${dbName}-collections`;
     data.db = {
       url: dbUrl,
-      publicationName: `${dbUrl}-collections`
+      publicationName: publicationName
     };
-    let publicationName = data.db.publicationName;
     $meteor.call('externalDb.connect', data.db.url).then(loadDbCollections);
 
     return data.db;
