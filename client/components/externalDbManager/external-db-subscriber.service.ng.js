@@ -65,10 +65,8 @@ angular.module('external-db-manager')
   }
   
   function stopCollection(subscription, collection) {
-    if (collection) {
+    if (collection)
       collection.stop();
-      collection.remove();
-    }
 
     if (subscription)
       subscription.stop();
