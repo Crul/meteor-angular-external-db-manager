@@ -10,7 +10,8 @@ angular.module('external-db-manager')
     subscribeToDb: subscribeToDb,
     unsubscribeFromDb: unsubscribeFromDb,
     subscribeToCollection: subscribeToCollection,
-    unsubscribeFromCollection: unsubscribeFromCollection 
+    unsubscribeFromCollection: unsubscribeFromCollection,
+    pageSize: 3
   };  
 
   return service;
@@ -42,8 +43,11 @@ angular.module('external-db-manager')
     stopCollection(data.db.subscription, data.db.collections);
   }
 
-  function subscribeToCollection(collection) {
-    return $meteor.subscribe(collection.name).then(subscribeCollection);
+  function subscribeToCollection(collection, page) {
+    let publicationName = data.db.getCollectionPublicationName(collection);
+    let query = {};
+    let pagination = getPaginationParams(page);
+    return $meteor.subscribe(publicationName, query, pagination).then(subscribeCollection);
 
     function subscribeCollection(subscription) {
       data.collectionSubscription = subscription;
@@ -70,5 +74,11 @@ angular.module('external-db-manager')
 
     if (subscription)
       subscription.stop();
+  }
+
+  function getPaginationParams(page) {
+    let skip = (page - 1) * service.pageSize;
+    let limit = service.pageSize;
+    return { skip: skip, limit: limit };
   }
 });

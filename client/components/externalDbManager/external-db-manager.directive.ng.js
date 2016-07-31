@@ -47,6 +47,24 @@ let template = '' +
   '                </h2>' +
   '            </label>' +
   '' +
+  '          <div class="buttons">' +
+  '              <button class="button button-small button-royal"' +
+  '                      ng-click="gotoPage(currentPage - 1)"' +
+  '                      ng-disabled="currentPage < 2">' +
+  '                  <i class="icon ion-arrow-left-c"></i>' +
+  '              </button>' +
+  '' +
+  '              <button class="button button-light" disabled="disabled">' +
+  '                  {{currentPage}}' +
+  '              </button>' +
+  '' +
+  '              <button class="button button-small button-royal"' +
+  '                      ng-click="gotoPage(currentPage + 1)"' +
+  '                      ng-disabled="collection.length < pageSize">' +
+  '                  <i class="icon ion-arrow-right-c"></i>' +
+  '              </button>' +
+  '          </div>' +
+  '' +
   '        </div>' +
   '' +
   '        <div ng-show="isCollectionLoaded()">' +
@@ -87,11 +105,16 @@ angular.module('external-db-manager')
       scope.isCollectionLoaded = isCollectionLoaded;
       scope.getColumns = getColumns;
 
+      scope.currentPage = 1;
+      scope.pageSize = externalDbSubscriber.pageSize;
+      scope.gotoPage = gotoPage;
+
       if (scope.url)
         connect(scope.url);
 
       function connect() {
         scope.database = externalDbSubscriber.subscribeToDb(scope.url);
+        scope.currentPage = 1;
       }
 
       function disconnect() {
@@ -99,10 +122,19 @@ angular.module('external-db-manager')
 
         externalDbSubscriber.unsubscribeFromDb();
         scope.database = undefined;
+        scope.currentPage = 1;
       }
 
-      function loadCollection(collection) {
-        externalDbSubscriber.subscribeToCollection(collection).then(setCollection);
+      function loadCollection(collectionName) {
+        scope.collectionName = collectionName;
+        scope.currentPage = 1;
+        loadCollectionPage();
+      }
+
+      function loadCollectionPage() {
+        externalDbSubscriber
+          .subscribeToCollection(scope.collectionName, scope.currentPage)
+          .then(setCollection);
       }
 
       function setCollection(collection) {
@@ -112,6 +144,13 @@ angular.module('external-db-manager')
       function exitCollection() {
         externalDbSubscriber.unsubscribeFromCollection();
         scope.collection = undefined;
+        scope.currentPage = 1;
+      }
+
+      function gotoPage(page) {
+        externalDbSubscriber.unsubscribeFromCollection();
+        scope.currentPage = page;
+        loadCollectionPage();
       }
 
       function isDatabaseLoaded() {
