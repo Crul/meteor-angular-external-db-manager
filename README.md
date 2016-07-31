@@ -10,14 +10,18 @@ meteor add crul:meteor-angular-external-db-manager
 
 ## dependencies
 
+- **[crul:meteor-external-mongo-db](https://github.com/Crul/meteor-angular-external-db-manager)**
 - ecmascript
 - underscore
-- pbastowski:angular-babel
-- driftyco:ionic
-- crul:meteor-external-mongo-db
+- [pbastowski:angular-babel](https://atmospherejs.com/pbastowski/angular-babel)
+- [driftyco:ionic](https://atmospherejs.com/driftyco/ionic)
+
+tested with Meteor 1.4
 
 ## roadmap
 
+- add pagination: subscribe(publicationName, {}, { skip: s, limit: l })
+- templates to html files
 - add css
 - add testing (server + client)
 - add bootstrap (vs ionic) version
@@ -31,19 +35,18 @@ meteor add crul:meteor-angular-external-db-manager
     cd meteorTestApp
     meteor remove ecmascript
     meteor remove blaze-html-templates
-    meteor add angular-templates
     meteor npm install --save angular angular-meteor
-    meteor add driftyco:ionic pbastowski:angular-babel crul:meteor-external-mongo-db
+    meteor add driftyco:ionic pbastowski:angular-babel crul:meteor-angular-external-db-manager
     ```
 
-- add main.js code to client:
+- replace client/main.js code:
 
     ```javascript
     import angular from 'angular';
     import angularMeteor from 'angular-meteor';
 
     let appName = 'test_app';
-    angular(appName, [angularMeteor, 'external-db-manager']);
+    angular.module(appName, [angularMeteor, 'external-db-manager']);
 
     onReady = function() { angular.bootstrap(document, [appName]); };
     if(Meteor.isCordova) {
@@ -53,11 +56,11 @@ meteor add crul:meteor-angular-external-db-manager
     }
     ```
 
-- add main.html code to client:
+- replace client/main.html code:
 
     ```html
     <body>
         <h1>db manager</h1>
-        <external-db-manager></external-db-manager>
+        <external-db-manager url="urlModel"></external-db-manager>
     </body>
     ```
