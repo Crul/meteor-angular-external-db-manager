@@ -1,6 +1,6 @@
 Package.describe({
   name: 'crul:meteor-angular-external-db-manager',
-  version: '0.1.0',
+  version: '0.2.0',
   summary: 'meteor angular db manager component - working!',
   git: 'https://github.com/Crul/meteor-angular-external-db-manager',
   documentation: 'README.md'
@@ -27,14 +27,12 @@ Package.onUse(function(api) {
 });
 
 Package.onTest(function(api) {
-  /*
   api.use('ecmascript', 'server');
   api.use('underscore');
   api.use('tinytest');
   //api.use('pbastowski:angular-babel', 'client');
   //api.use('driftyco:ionic', 'client');
-  api.use('crul:meteor-external-mongo-db@0.3.3');
+  api.use('crul:meteor-external-mongo-db');
   api.use('crul:meteor-angular-external-db-manager');
   api.mainModule('meteor-angular-external-db-manager-tests.js');
-  */
 });
