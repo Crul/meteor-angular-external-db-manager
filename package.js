@@ -27,14 +27,12 @@ Package.onUse(function(api) {
 });
 
 Package.onTest(function(api) {
-  /*
   api.use('ecmascript', 'server');
   api.use('underscore');
   api.use('tinytest');
   //api.use('pbastowski:angular-babel', 'client');
   //api.use('driftyco:ionic', 'client');
-  api.use('crul:meteor-external-mongo-db@0.3.3');
+  api.use('crul:meteor-external-mongo-db');
   api.use('crul:meteor-angular-external-db-manager');
   api.mainModule('meteor-angular-external-db-manager-tests.js');
-  */
 });
