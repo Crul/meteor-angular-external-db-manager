@@ -44,15 +44,13 @@ angular.module('external-db-manager')
   }
 
   function subscribeToCollection(collection, page) {
-    let publicationName = data.db.getCollectionPublicationName(collection);
     let query = {};
     let pagination = getPaginationParams(page);
-    return $meteor.subscribe(publicationName, query, pagination).then(subscribeCollection);
+    return $meteor.subscribe(collection.name, query, pagination).then(subscribeCollection);
 
     function subscribeCollection(subscription) {
       data.collectionSubscription = subscription;
-      let collectionName = collection.name;
-      data.collection = getCollection(collectionName);
+      data.collection = getCollection(collection.name);
 
       return data.collection;
     }
