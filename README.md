@@ -20,7 +20,6 @@ tested with Meteor 1.4
 
 ## roadmap
 
-- add pagination: subscribe(publicationName, {}, { skip: s, limit: l })
 - templates to html files
 - add css
 - add testing (server + client)
@@ -46,7 +45,7 @@ tested with Meteor 1.4
     import angularMeteor from 'angular-meteor';
 
     let appName = 'test_app';
-    angular.module(appName, [angularMeteor, 'external-db-manager']);
+    angular.module(appName, ['ionic', angularMeteor, 'external-db-manager']);
 
     onReady = function() { angular.bootstrap(document, [appName]); };
     if(Meteor.isCordova) {
