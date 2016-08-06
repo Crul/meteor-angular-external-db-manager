@@ -1,6 +1,6 @@
 Package.describe({
   name: 'crul:meteor-angular-external-db-manager',
-  version: '0.2.3',
+  version: '0.2.4',
   summary: 'meteor angular db manager component',
   git: 'https://github.com/Crul/meteor-angular-external-db-manager',
   documentation: 'README.md'
