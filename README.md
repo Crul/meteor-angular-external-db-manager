@@ -45,7 +45,7 @@ tested with Meteor 1.4
     import angularMeteor from 'angular-meteor';
 
     let appName = 'test_app';
-    angular.module(appName, ['ionic', angularMeteor, 'external-db-manager']);
+    angular.module(appName, [angularMeteor, 'external-db-manager']);
 
     onReady = function() { angular.bootstrap(document, [appName]); };
     if(Meteor.isCordova) {
